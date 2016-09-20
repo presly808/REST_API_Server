@@ -22,8 +22,10 @@ public class BasicElasticsearchDAOTest {
     protected void truncate(String type) {
         // We need to wait the sync for elastic. it is async - so just dirty hack
         try {
+            // todo
             Thread.sleep(1000);
         } catch (InterruptedException e) {
+            //todo use logger
             e.printStackTrace();
         }
         SearchRequestBuilder requestBuilder = client.getClient().prepareSearch(client.getIndex()).setTypes(type)

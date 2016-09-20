@@ -64,6 +64,7 @@ public class ElasticPostDAOImplTest extends BasicElasticsearchDAOTest {
 
         DBPost post = create();
         postDAO.addPost(post);
+        //todo delete unnecessary comments
         //Thread.sleep(1000);
         DBPost post1 = postDAO.findPostById(post.getId());
         check(post, post1);

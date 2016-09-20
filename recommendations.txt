@@ -1,0 +1,7 @@
+1) Do code formatting Ctrl + Alt + L
+2) Why you dont use logger?(Use its everywhere)
+3) Delete empty or unused classes!
+5) do not hardcode url
+6) Write documentation, how to run project
+    What do programmer have to install
+7) see all todo

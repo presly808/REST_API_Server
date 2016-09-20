@@ -28,6 +28,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class BasicIntegrationTest extends BasicElasticsearchDAOTest{
 
     private static Server server;
+    // TODO do not hardcode url, take it from separate spring context
     public static String BASE_URL = "http://localhost:9090/";
     protected static DBUser BASIC_USER;
     private static JerseyClient client;

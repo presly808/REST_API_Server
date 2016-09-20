@@ -29,11 +29,11 @@ public class PostResourseIT extends BasicIntegrationTest {
         truncate(ElasticPostDAOImpl.POST_TABLE);
 
     }
+
+    // todo unimportant method
     @Test
-    public void addUser(){
+    public void addUser() {
         DBUser dbUser = new DBUser();
-
-
     }
 
 }

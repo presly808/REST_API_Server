@@ -74,6 +74,7 @@ public class ElasticUserDAOImplTest extends BasicElasticsearchDAOTest {
         check(userDAO.getUserById(user.getId()),user3);
         DBUser user4 = create();
         userDAO.addUser(user4);
+        //todo why did you choose 3000?
         Thread.sleep(3000);
         check(userDAO.getUserByLogin(user4.getLogin()),user4);
     }

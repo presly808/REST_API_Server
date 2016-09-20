@@ -9,7 +9,7 @@ import java.util.UUID;
 /**
  * Created by vlad on 17.09.16.
  */
-
+// todo use comments using English
 public class DBPost {
     private UUID id; //           идентификатор записи
     private UUID userId;//        ид юзера которому пренадлежит пост

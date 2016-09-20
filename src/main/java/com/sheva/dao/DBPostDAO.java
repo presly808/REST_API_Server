@@ -9,6 +9,7 @@ import java.util.UUID;
  * Created by vlad on 17.09.16.
  */
 public interface DBPostDAO {
+    //todo dont put constants into a interface
     String POST_TABLE ="POST";
     DBPost findPostById(UUID id);
     boolean deletePostById(UUID id);

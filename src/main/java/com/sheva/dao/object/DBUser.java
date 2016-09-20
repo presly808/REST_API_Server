@@ -6,7 +6,7 @@ import java.util.UUID;
 /**
  * Created by vlad on 17.09.16.
  */
-
+// todo override equals and hashcode
 public class DBUser {
     private UUID id;
     private String login;

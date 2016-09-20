@@ -9,5 +9,6 @@ import javax.ws.rs.core.SecurityContext;
  */
 public interface AuthService {
     DBUser getCurrentUser(SecurityContext securityContext);
+    //todo when method dosent return something, we can not test its
     void authorizeUser(DBUser user);
 }
