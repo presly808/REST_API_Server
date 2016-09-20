@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+          http://www.springframework.org/schema/security
+          http://www.springframework.org/schema/security/spring-security-3.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:application.properties"/>
+    <context:component-scan base-package="com.sheva"/>
+
+    <global-method-security pre-post-annotations="enabled" />
+
+    <http pattern="/auth/login" security="none"/>
+    <http pattern="/auth/register" security="none"/>
+
+    <beans:bean id="restAuthenticationEntryPoint" class="com.sheva.security.RestAuthenticationEntryPoint"/>
+    <http pattern="/**" entry-point-ref="restAuthenticationEntryPoint" create-session="stateless">
+        <custom-filter before="FORM_LOGIN_FILTER" ref="jwtAuthenticationFilter"/>
+    </http>
+
+    <beans:bean id="jwtAuthenticationFilter" class="com.sheva.rest.filters.JwtAuthenticationFilter">
+        <beans:property name="authenticationManager" ref="authenticationManager" />
+    </beans:bean>
+    <beans:bean id="jwtAuthenticationProvider" class="com.sheva.security.JwtAuthenticationProvider"/>
+
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider ref="jwtAuthenticationProvider" />
+    </authentication-manager>
+
+
+</beans:beans>
